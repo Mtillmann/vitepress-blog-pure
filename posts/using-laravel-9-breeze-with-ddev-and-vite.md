@@ -1,4 +1,5 @@
 ---
+layout: post
 date: 2022-10-26
 title: Using Laravel 9 / Breeze with DDEV and Vite
 tags:
