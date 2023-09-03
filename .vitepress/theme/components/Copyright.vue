@@ -1,7 +1,8 @@
 <template>
     <div class="site-footer">
-        Powered by <a class="vitepress" target="_blank" href="//vitepress.vuejs.org/">VitePress - 1.0.0-rc.10</a>
-        Theme based on <a class="vitepress" target="_blank" href="//github.com/airene/vitepress-blog-pure">Vitepress-blog</a>
+        Powered by <a class="vitepress" target="_blank" href="//vitepress.vuejs.org/">VitePress</a>
+        &mdash;
+        Theme based on <a class="vitepress" target="_blank" href="//github.com/airene/vitepress-blog-pure">Airene's vitepress-blog-pure</a>
     </div>
 </template>
 <script lang="ts" setup>

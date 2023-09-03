@@ -1,7 +1,9 @@
 import { defineConfig } from 'vitepress'
 import { getPosts } from './theme/serverUtils'
+import package from '../package.json';
+import { readdirSync, writeFileSync } from 'fs';
+import { log } from 'console';
 
-//每页的文章数量
 const pageSize = 10
 
 export default defineConfig({
@@ -12,10 +14,9 @@ export default defineConfig({
     ignoreDeadLinks: true,
     themeConfig: {
         posts: await getPosts(pageSize),
-        website: 'https://github.com/airene/vitepress-blog-pure', //copyright link
-        // 评论的仓库地址
+        website: 'https://mtillmann.github.io', //copyright link
         comment: {
-            repo: 'airene/vitepress-blog-pure',
+            repo: 'Mtillmann/mtillmann.github.io',
             themes: 'github-light',
             issueTerm: 'pathname'
         },
@@ -23,23 +24,25 @@ export default defineConfig({
             { text: 'Home', link: '/' },
             { text: 'Archives', link: '/pages/archives' },
             { text: 'Tags', link: '/pages/tags' },
-            { text: 'About', link: '/pages/about' }
-            // { text: 'Airene', link: 'http://airene.net' }  -- External link test
+            // { text: 'About', link: '/pages/about' },
         ],
         search: {
             provider: 'local',
         },
         //outline:[2,3],
         outlineTitle: 'Outline',
-        socialLinks: [{ icon: 'github', link: 'https://github.com/airene/vitepress-blog-pure' }]
+        socialLinks: [{ 
+            icon: 'github', 
+            link: 'https://github.com/Mtillmann/mtillmann.github.io' 
+        }]
     },
     srcExclude: ['README.md'], // exclude the README.md , needn't to compiler
 
     vite: {
-        //build: { minify: false }
+        build: { minify: true },
         server: { port: 5000 }
     },
     sitemap: {
-        hostname: 'https://example.com'
-      }
+        hostname: 'https://mtillmann.github.io'
+    }
 })
