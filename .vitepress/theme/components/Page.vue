@@ -14,7 +14,7 @@
         </div>
     </div>
 
-    <div class="pagination">
+    <div class="pagination" v-if="pagesNum > 1">
         <a
             class="link"
             :class="{ active: pageCurrent === i }"
