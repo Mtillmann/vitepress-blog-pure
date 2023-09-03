@@ -2,12 +2,15 @@
     <div v-for="(article, index) in posts" :key="index" class="post-list">
         <div class="post-header">
             <div class="post-title">
-                <a :href="withBase(article.regularPath)"> {{ article.frontMatter.title }}</a>
+                
+                <a :href="withBase(article.regularPath)">
+                    <small>{{ new Date(article.frontMatter.date).toLocaleDateString() }}</small><br>    
+                    {{ article.frontMatter.title }}</a>
             </div>
         </div>
-        <p class="describe" v-html="article.frontMatter.description"></p>
+        <p class="excerpt" v-html="article.frontMatter.description"></p>
         <div class='post-info'>
-            {{ article.frontMatter.date }} <span v-for="item in article.frontMatter.tags"><a :href="withBase(`/pages/tags.html?tag=${item}`)"> {{ item }}</a></span>
+             <span v-for="item in article.frontMatter.tags"><a :href="withBase(`/pages/tags.html?tag=${item}`)"> {{ item }}</a></span>
         </div>
     </div>
 
@@ -58,7 +61,7 @@ const props = defineProps({
     border-radius: 2px;
     color: var(--vp-c-text-1);
 }
-.describe {
+.excerpt {
     font-size: 0.9375rem;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -114,7 +117,7 @@ const props = defineProps({
         overflow: hidden;
         width: 17rem;
     }
-    .describe {
+    .excerpt {
         font-size: 0.9375rem;
         display: -webkit-box;
         -webkit-box-orient: vertical;

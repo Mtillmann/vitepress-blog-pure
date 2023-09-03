@@ -10,7 +10,7 @@ tags:
 - breeze
 - ddev
 - docker
-description: mein erster blogpost
+excerpt: mein erster blogpost
 ---
 
 When trying to use a fresh Laravel 9 installation with breeze, you’ll encounter the problem that your browser won’t be able to load and hot-replace the assets compiled by vite.

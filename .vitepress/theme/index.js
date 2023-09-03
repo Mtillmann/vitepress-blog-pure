@@ -7,6 +7,7 @@ import Page from './components/Page.vue'
 import Comment from './components/Comment.vue'
 
 import './custom.css'
+import './custom.js'
 
 export default {
     ...DefaultTheme,
