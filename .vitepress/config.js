@@ -5,7 +5,7 @@ import { getPosts } from './theme/serverUtils'
 const pageSize = 10
 
 export default defineConfig({
-    title: 'vitepress',
+    title: 'Martin\'s Blog',
     base: '/',
     cacheDir: './node_modules/vitepress_cache',
     description: 'vitepress,blog,blog-theme',
@@ -30,7 +30,7 @@ export default defineConfig({
             provider: 'local',
         },
         //outline:[2,3],
-        outlineTitle: '文章摘要',
+        outlineTitle: 'Outline',
         socialLinks: [{ icon: 'github', link: 'https://github.com/airene/vitepress-blog-pure' }]
     },
     srcExclude: ['README.md'], // exclude the README.md , needn't to compiler
