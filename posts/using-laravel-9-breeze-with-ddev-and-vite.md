@@ -2,7 +2,7 @@
 layout: doc
 date: 2022-10-26
 updated: 2023-09-03
-title: Using Laravel 9 / Breeze with DDEV and Vite
+title: Using Laravel 9 w/ Breeze with DDEV and Vite
 tags:
 - laravel
 - php
@@ -10,8 +10,9 @@ tags:
 - breeze
 - ddev
 - docker
-excerpt: mein erster blogpost
 ---
+
+<Title/>
 
 When trying to use a fresh Laravel 9 installation with breeze, you’ll encounter the problem that your browser won’t be able to load and hot-replace the assets compiled by vite.
 

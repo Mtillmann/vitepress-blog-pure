@@ -1,6 +1,6 @@
 ---
 layout: doc
-date: 2022-02-22
+date: 2023-02-22
 title: how to install a game from iso on steam deck
 tags:
   - linux
@@ -8,14 +8,15 @@ tags:
   - iso
   - abandonware
   - wine
-excerpt: mein erster blogpost
 ---
+
+<Title/>
 
 ## Background
 
 When I got my steam deck I wanted to try and install VTMB on the deck. For some reason there seemed to be no working guide on how to install an ISO and those suggesting PowerISO didn't work at all so I wrote this guide and shared it with my friends. Now I post it here to hopefully help some others who are stuck with the same issue.
 
-> Note: Steps 2,3 and 4 only must be completed once
+> Note: Steps 2, 3 and 4 only must be completed once
 
 ## 1. Enter the desktop mode
 Press the Power Button, select "exit to desktop mode" and wait for desktop to boot.
@@ -54,7 +55,7 @@ While in desktop-mode, open steam and add the game's main executable file as a n
 ## Conclusion
 While adding the game to steam I discovered that I own the game in steam and it wouldn't properly run either way. 
 
-I absolutely do not approve piracy! Only use this for games that you own an old physical copy of!
+Please only use this method for games that you own a physical copy of!
 
 
 <Comment />

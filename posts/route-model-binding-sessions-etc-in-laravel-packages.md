@@ -6,10 +6,9 @@ tags:
   - laravel
   - php
   - package-dev
-excerpt: mein erster blogpost
 ---
 
-<Title />
+<Title></Title>
 
 While developing a package that provides some bundled routes, I came across a problem that baffled me at first but became clear after a few minutes: Neither route model binding nor authentication worked in my controller. Type-hinted arguments were not resolved to the expected model but received as present in the route segment, calls to \Auth::user() always returned null because no session was present.
 

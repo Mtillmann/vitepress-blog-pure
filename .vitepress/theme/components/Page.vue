@@ -8,7 +8,7 @@
                     {{ article.frontMatter.title }}</a>
             </div>
         </div>
-        <p class="excerpt" v-html="article.frontMatter.description"></p>
+        <p v-if="article.frontMatter.excerpt" class="excerpt" v-html="article.frontMatter.excerpt"></p>
         <div class='post-info'>
              <span v-for="item in article.frontMatter.tags"><a :href="withBase(`/pages/tags.html?tag=${item}`)"> {{ item }}</a></span>
         </div>
