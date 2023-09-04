@@ -1,6 +1,11 @@
-# Privacy Policy for Martin's Blog
+---
+search: false
+title: Privacy Policy for Martin's Blog
+#lastUpdated: 4-09-2023
+date: 4-09-2023
+---
 
-**Last Updated: [Date]**
+<Title/>
 
 ## 1. Introduction
 

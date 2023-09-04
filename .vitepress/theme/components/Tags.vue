@@ -21,17 +21,21 @@ import { initTags } from '../functions'
 const { theme } = useData()
 const data = computed(() => initTags(theme.value.posts))
 
+let selectTag = ref('');
+
 const toggleTag = (tag: string) => {
     selectTag.value = tag
 }
 
+
+
 onMounted(() => {
 
 
-    let url = [location ?? { href: '?' }].href.split('?')[1]
+    let url = location.href.split('?')[1]
     let params = new URLSearchParams(url)
 
-    let selectTag = ref(params.get('tag') ? params.get('tag') : '')
+    selectTag.value = params.get('tag') ? params.get('tag') : '';
 });
 
 </script>

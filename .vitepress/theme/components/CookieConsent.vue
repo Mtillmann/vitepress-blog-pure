@@ -2,6 +2,11 @@
     <div id="cookieConsent" ref="div" :style="`display: ${isOpen ? 'block' : 'none'};`">
         <div class="backdrop"></div>
         <div class="foreground">
+            <a href="#" @click.stop.prevent="isOpen = false" class="close-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+</svg>
+            </a>
             <div>
                 <div>
 
@@ -9,12 +14,12 @@
 
 
 
-                    I'd like to use Google Fonts
+                    This website uses Google Fonts
                     (<code>{{ state.fonts ? 'accepted' : 'not accepted' }}</code>)
                     and
                     Google Analytics
                     (<code>{{ state.analytics ? 'accepted' : 'not accepted' }}</code>)
-                    on this website. <a :href="withBase('privacy-policy.html')" @click="isOpen = false">Privacy Policy.</a>
+                    . <a :href="withBase('privacy-policy.html')" @click="isOpen = false">Privacy Policy.</a>
                 </div>
             </div>
             <div>
@@ -73,9 +78,11 @@ onMounted(() => {
     }
 
 
-    document.querySelector('.VPSocialLink[aria-label*="Privacy"]').addEventListener('click', e => {
-        e.preventDefault();
-        isOpen.value = true;
+    document.body.addEventListener('click', e => {
+        if (e.target.closest('.VPSocialLink[aria-label*="Privacy"]')) {
+            e.preventDefault();
+            isOpen.value = true;
+        }
     });
 
     if (!state.value.isSet) {
@@ -116,6 +123,12 @@ const accept = function (what) {
         right: 0;
         top: 0;
         background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .close-button{
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
     }
 
     .foreground {
