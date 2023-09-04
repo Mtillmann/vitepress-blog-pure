@@ -14,17 +14,26 @@
     </a>
 </template>
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import { useData, withBase } from 'vitepress'
 import { initTags } from '../functions'
-let url = location.href.split('?')[1]
-let params = new URLSearchParams(url)
+
 const { theme } = useData()
 const data = computed(() => initTags(theme.value.posts))
-let selectTag = ref(params.get('tag') ? params.get('tag') : '')
+
 const toggleTag = (tag: string) => {
     selectTag.value = tag
 }
+
+onMounted(() => {
+
+
+    let url = [location ?? { href: '?' }].href.split('?')[1]
+    let params = new URLSearchParams(url)
+
+    let selectTag = ref(params.get('tag') ? params.get('tag') : '')
+});
+
 </script>
 
 <style scoped>
@@ -33,6 +42,7 @@ const toggleTag = (tag: string) => {
     display: flex;
     flex-wrap: wrap;
 }
+
 .tag {
     display: inline-block;
     padding: 4px 16px;
@@ -45,9 +55,11 @@ const toggleTag = (tag: string) => {
     color: var(--vp-c-text-1);
     cursor: pointer;
 }
+
 .tag strong {
     color: var(--vp-c-brand);
 }
+
 .tag-header {
     font-size: 1.5rem;
     font-weight: 500;
@@ -59,8 +71,8 @@ const toggleTag = (tag: string) => {
     .tag-header {
         font-size: 1.5rem;
     }
+
     .date {
         font-size: 0.75rem;
     }
-}
-</style>
+}</style>

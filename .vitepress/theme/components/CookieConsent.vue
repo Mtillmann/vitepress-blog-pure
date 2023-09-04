@@ -10,12 +10,12 @@
 
 
                 
-                I'd like to use <a target="_blank" href="https://developers.google.com/fonts/faq/privacy#:~:text=Fonts%20Web%20API%3F-,What%20does%20using%20the%20Google%20Fonts%20Web%20API%20mean%20for,not%20set%20or%20log%20cookies.">Google Fonts</a>
+                I'd like to use Google Fonts
                  (<code>{{ state.fonts ? 'accepted' : 'not accepted' }}</code>) 
                  and 
-                <a target="_blank" href="https://support.google.com/analytics/answer/7318509?hl=en#:~:text=When%20you%20use%20Google%20Analytics,it%20collects%20and%20processes%20data.">Google Analytics</a> 
+                Google Analytics
                 (<code>{{ state.analytics ? 'accepted' : 'not accepted' }}</code>)
-                on this website.
+                on this website. <a :href="withBase('pages/privacy-policy')">Privacy Policy.</a>
                 </div>
             </div>
             <div>
@@ -26,15 +26,25 @@
                 <button @click="accept(['fonts'])" class="accept-fonts">Accept Fonts</button>
                 <button @click="accept(['fonts', 'analytics'])" class="accept-all">Accept All</button>
             </div>
+            <div>
+                You can change your settings later by clicking the shield icon in the navigation.
+            </div>
         </div>
     </div>
 </template>
 
 <script setup>
 
+import {withBase} from 'vitepress';
 import { ref, onMounted } from 'vue';
 const div = ref(null);
 const isOpen = ref(false);
+
+let ls = {
+    getItem: () => null,
+    setItem: () => null,
+};
+
 
 const fontCSS = `
 <style>
@@ -46,6 +56,7 @@ const analyticsJS = `asdf`;
 
 onMounted(() => {
 
+    ls = localStorage;
     document.querySelector('.VPSocialLink[aria-label*="Privacy"]').addEventListener('click', e => {
         e.preventDefault();
         isOpen.value = true;
@@ -68,14 +79,14 @@ const key = 'blog_consent_state';
 state.value = {
     fonts: false,
     analytics: false,
-    ...(JSON.parse(localStorage.getItem(key)) ?? {})
+    ...(JSON.parse(ls.getItem(key)) ?? {})
 }
 
 
 const accept = function (what) {
     what = Object.fromEntries(what.map((w) => [w, true]));
     what.isSet = true;
-    localStorage.setItem(key, JSON.stringify(what));
+    ls.setItem(key, JSON.stringify(what));
     state.value = what;
     isOpen.value = false;
 
