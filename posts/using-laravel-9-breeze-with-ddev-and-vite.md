@@ -1,7 +1,7 @@
 ---
 layout: doc
 date: 2022-10-26
-updated: 2023-09-03
+lastUpdated: 2023-09-03
 title: Using Laravel 9 w/ Breeze with DDEV and Vite
 tags:
 - laravel

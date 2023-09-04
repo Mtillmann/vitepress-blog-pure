@@ -1,21 +1,20 @@
 <template>
-    
     <div id="cookieConsent" ref="div" :style="`display: ${isOpen ? 'block' : 'none'};`">
         <div class="backdrop"></div>
         <div class="foreground">
             <div>
                 <div>
 
-                
 
 
-                
-                I'd like to use Google Fonts
-                 (<code>{{ state.fonts ? 'accepted' : 'not accepted' }}</code>) 
-                 and 
-                Google Analytics
-                (<code>{{ state.analytics ? 'accepted' : 'not accepted' }}</code>)
-                on this website. <a :href="withBase('pages/privacy-policy')">Privacy Policy.</a>
+
+
+                    I'd like to use Google Fonts
+                    (<code>{{ state.fonts ? 'accepted' : 'not accepted' }}</code>)
+                    and
+                    Google Analytics
+                    (<code>{{ state.analytics ? 'accepted' : 'not accepted' }}</code>)
+                    on this website. <a :href="withBase('privacy-policy.html')" @click="isOpen = false">Privacy Policy.</a>
                 </div>
             </div>
             <div>
@@ -35,7 +34,7 @@
 
 <script setup>
 
-import {withBase} from 'vitepress';
+import { withBase } from 'vitepress';
 import { ref, onMounted } from 'vue';
 const div = ref(null);
 const isOpen = ref(false);
@@ -54,15 +53,32 @@ const fontCSS = `
 
 const analyticsJS = `asdf`;
 
+const state = ref({
+    fonts: false,
+    analytics: false,
+    isSet: false,
+});
+const key = 'blog_consent_state';
+
+
 onMounted(() => {
 
+
     ls = localStorage;
+
+    state.value = {
+        fonts: false,
+        analytics: false,
+        ...(JSON.parse(ls.getItem(key)) ?? {})
+    }
+
+
     document.querySelector('.VPSocialLink[aria-label*="Privacy"]').addEventListener('click', e => {
         e.preventDefault();
         isOpen.value = true;
     });
-    
-    if(!state.value.isSet) {
+
+    if (!state.value.isSet) {
         div.value.style.display = 'block';
     }
 
@@ -74,13 +90,6 @@ onMounted(() => {
     }
 });
 
-const state = ref(null);
-const key = 'blog_consent_state';
-state.value = {
-    fonts: false,
-    analytics: false,
-    ...(JSON.parse(ls.getItem(key)) ?? {})
-}
 
 
 const accept = function (what) {
@@ -122,7 +131,7 @@ const accept = function (what) {
         justify-content: center;
 
         &>div {
-            margin-bottom:1rem;
+            margin-bottom: 1rem;
             display: flex;
             justify-content: center;
 

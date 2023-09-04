@@ -4,8 +4,8 @@
             <span v-if="page.frontmatter.date">Posted on
                 <span>{{ new Date(page.frontmatter.date).toLocaleDateString() }}</span>
             </span>
-            <span v-if="page.frontmatter.updated"> (updated on
-                <span>{{ new Date(page.frontmatter.updated).toLocaleDateString() }}</span>)
+            <span v-if="page.frontmatter.lastUpdated"> (updated on
+                <span>{{ new Date(page.frontmatter.lastUpdated).toLocaleDateString() }}</span>)
             </span>
 
             <span v-if="page.frontmatter.tags?.length > 0">

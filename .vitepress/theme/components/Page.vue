@@ -8,7 +8,7 @@
                     {{ article.frontMatter.title }}</a>
             </div>
         </div>
-        <p v-if="article.frontMatter.excerpt" class="excerpt" v-html="article.frontMatter.excerpt"></p>
+        <p v-if="article.frontMatter.description" class="description" v-html="article.frontMatter.description"></p>
         <div class='post-info'>
              <span v-for="item in article.frontMatter.tags"><a :href="withBase(`/pages/tags.html?tag=${item}`)"> {{ item }}</a></span>
         </div>
@@ -61,7 +61,7 @@ const props = defineProps({
     border-radius: 2px;
     color: var(--vp-c-text-1);
 }
-.excerpt {
+.description {
     font-size: 0.9375rem;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -117,7 +117,7 @@ const props = defineProps({
         overflow: hidden;
         width: 17rem;
     }
-    .excerpt {
+    .description {
         font-size: 0.9375rem;
         display: -webkit-box;
         -webkit-box-orient: vertical;
