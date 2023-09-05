@@ -19,7 +19,7 @@
                     and
                     Google Analytics
                     (<code>{{ state.analytics ? 'accepted' : 'not accepted' }}</code>)
-                    . <a :href="withBase('privacy-policy.html')" @click="isOpen = false">Privacy Policy.</a>
+                    . <a :href="withBase('/pages/privacy-policy.html')" @click="isOpen = false">Privacy Policy.</a>
                 </div>
             </div>
             <div>
